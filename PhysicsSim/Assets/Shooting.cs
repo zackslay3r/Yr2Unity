@@ -22,10 +22,10 @@ public class Shooting : MonoBehaviour
     {
         // A variable that will store the imformation gathered from the raycast.
         RaycastHit hit;
-        Debug.DrawRay(EndOfGun.transform.position, fpsCam.transform.forward * 100, Color.blue, 3.0f);
+        Debug.DrawRay(EndOfGun.transform.position, fpsCam.transform.forward * range, Color.blue, 3.0f);
         // If we hit something with our shot raycast.
         //if (Physics.Raycast(fpsCam.transform.position, fpsCam.transform.forward, out hit, range)) ;
-        if (Physics.Raycast(EndOfGun.transform.position, fpsCam.transform.forward, out hit, range)) ;
+        if (Physics.Raycast(fpsCam.transform.position, fpsCam.transform.forward, out hit, range)) ;
         {
             // Put in place the takeDamage event handler for the game manager here.
             //GameObject.FindGameObjectWithTag("Manager").GetComponent<PlayerManager>().HandleEvent(GameEvent.)
