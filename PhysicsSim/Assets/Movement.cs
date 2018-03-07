@@ -8,7 +8,8 @@ public class Movement : MonoBehaviour {
     public float walkSpeed;
     public float jumpSpeed;
     private Vector3 moveDirection = Vector3.zero;
-    private float gravity = 15.0f;
+    private float gravity = 5.0f;
+    float oldY;
     void Awake()
     {
         charControl = GetComponent<CharacterController>();
@@ -16,19 +17,24 @@ public class Movement : MonoBehaviour {
 
     private void Update()
     {
+        
         //MovePlayer(); 
         CharacterController controller = GetComponent<CharacterController>();
-        if (controller.isGrounded)
-        {
             moveDirection = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
             moveDirection = transform.TransformDirection(moveDirection);
+            moveDirection.y = oldY;
             moveDirection *= walkSpeed;
-            if (Input.GetButton("Jump"))
-                moveDirection.y = jumpSpeed;
+        if (controller.isGrounded)
+        {
 
+            if (Input.GetButton("Jump"))
+            {
+                oldY = jumpSpeed * Time.deltaTime;
+                transform.parent = null;
+            }
         }
         
-        moveDirection.y -= gravity * Time.deltaTime;
+        oldY -= gravity * Time.deltaTime;
         controller.Move(moveDirection * Time.deltaTime);
     }
 }
