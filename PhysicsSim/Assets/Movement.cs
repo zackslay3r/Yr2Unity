@@ -8,7 +8,7 @@ public class Movement : MonoBehaviour {
     public float walkSpeed;
     public float jumpSpeed;
     private Vector3 moveDirection = Vector3.zero;
-    private float gravity = 5.0f;
+    public float gravity = 5.0f;
     float oldY;
     void Awake()
     {

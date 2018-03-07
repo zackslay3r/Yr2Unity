@@ -45,6 +45,7 @@ public class SoftBodyCreator : MonoBehaviour
                     //g.transform.position = new Vector3(i + 1 + offset, j + 1 + offset, k + 1 + offset);
                     g.transform.position = new Vector3(spawnPoint.transform.position.x + i * offset, spawnPoint.transform.position.y + j * offset, spawnPoint.transform.position.z + k * offset);
                     g.gameObject.tag = "Softbody";
+                   
                 }
 
                 //startPos.y += offset;
@@ -84,6 +85,9 @@ public class SoftBodyCreator : MonoBehaviour
                             //Rigidbody rb = c.GetComponent<Rigidbody>();
                             // collision objects
                             SpringJoint sj = c.gameObject.AddComponent<SpringJoint>() as SpringJoint;
+                            sj.tolerance = 0;
+                            sj.spring = springCoefficient;
+                            sj.damper = dampening;
                             Rigidbody rb = c.GetComponent<Rigidbody>();
                             Rigidbody ourRb = arrayOfCircles[i, j, k].GetComponent<Rigidbody>();
 
@@ -92,19 +96,19 @@ public class SoftBodyCreator : MonoBehaviour
                                         sj.connectedBody = ourRb;
                                     }
 
-                            foreach (SpringJoint joint in springJoints)
-                            {
-                                if (joint.connectedBody == arrayOfCircles[i, j, k].gameObject)
-                                {
-                                    continue;
-                                }
-                                else
-                                {
-                                   
+                            //foreach (SpringJoint joint in springJoints)
+                            //{
+                            //    if (joint.connectedBody == arrayOfCircles[i, j, k].gameObject)
+                            //    {
+                            //        //Destroy(joint);
+                            //        continue;
+                            //    }
+                            //    if (joint.connectedBody == null)
+                            //    {
+                            //        Destroy(joint);
+                            //    }
 
-                                }
-
-                            }
+                            //}
                         }
 
                     }
@@ -114,5 +118,25 @@ public class SoftBodyCreator : MonoBehaviour
 
         }
 
+
+
+        for (int i = 0; i < length; i++)
+        {
+            for (int j = 0; j < width; j++)
+            {
+                for (int k = 0; k < height; k++)
+                {
+                    SpringJoint[] springJointsEachItem = arrayOfCircles[i, j, k].GetComponents<SpringJoint>();
+
+                    foreach (SpringJoint joint in springJointsEachItem)
+                    {
+                        if (joint.connectedBody == null)
+                        {
+                            Destroy(joint);
+                        }
+                    }
+                }
+            }
+        }
     }
 }
