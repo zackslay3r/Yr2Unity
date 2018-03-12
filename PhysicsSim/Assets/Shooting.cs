@@ -37,8 +37,9 @@ public class Shooting : MonoBehaviour
            
             if (hit.transform.root.GetComponent<Ragdoll>() != null)
             {
+                
+                hit.rigidbody.AddForce(-hit.normal * 20);
                 hit.transform.root.GetComponent<Ragdoll>().RagdollOn = true;
-
             }
             if (hit.rigidbody != null)
             {

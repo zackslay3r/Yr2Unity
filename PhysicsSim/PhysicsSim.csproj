@@ -92,6 +92,7 @@
     <Compile Include="Assets\ConstantSpinning.cs" />
     <Compile Include="Assets\DynamicPushing.cs" />
     <Compile Include="Assets\Movement.cs" />
+    <Compile Include="Assets\RagdollBreaks.cs" />
     <Compile Include="Assets\RagdollOnCollide.cs" />
     <Compile Include="Assets\Ragdolls\Ragdolls\Assets\Scripts\Ragdoll.cs" />
     <Compile Include="Assets\Ragdolls\Ragdolls\Assets\Scripts\RagdollTrigger.cs" />

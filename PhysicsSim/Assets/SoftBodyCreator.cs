@@ -5,10 +5,11 @@ using UnityEngine;
 public class SoftBodyCreator : MonoBehaviour
 {
     public int Length, Width, Height;
-    public float springCoefficient, dampering;
+    public float springCoefficient, dampering, scale, breakforce, mass;
     public GameObject softbody;
     public GameObject spawnPoint;
     public float offset;
+    public GameObject[,,] arrayOfCircles;
     // Use this for initialization
     void Start()
     {
@@ -23,9 +24,9 @@ public class SoftBodyCreator : MonoBehaviour
 
     void MakeSoftBody(int length, int width, int height, float springCoefficient, float dampening)
     {
+        arrayOfCircles = new GameObject[length, width, height];
 
-
-        GameObject[,,] arrayOfCircles = new GameObject[length, width, height];
+        //GameObject[,,] arrayOfCircles = new GameObject[length, width, height];
 
         //List<Vector3Int> iter = new List<Vector3Int> { new Vector3Int(1,0,0), new Vector3Int(-1,0,0),new  }
 
@@ -40,6 +41,10 @@ public class SoftBodyCreator : MonoBehaviour
                 {
 
                     GameObject g = Instantiate(softbody);
+                    Rigidbody softBodyCircle = g.GetComponent<Rigidbody>();
+                    softBodyCircle.mass = mass;
+                    g.transform.localScale = new Vector3(scale,scale,scale);
+                 
                     g.transform.position = spawnPoint.transform.position;
                     arrayOfCircles[i, j, k] = g;
                     //g.transform.position = new Vector3(i + 1 + offset, j + 1 + offset, k + 1 + offset);
@@ -88,6 +93,8 @@ public class SoftBodyCreator : MonoBehaviour
                             sj.tolerance = 0;
                             sj.spring = springCoefficient;
                             sj.damper = dampening;
+                            sj.breakForce = breakforce;
+                            //sj.breakTorque = breakforce;
                             Rigidbody rb = c.GetComponent<Rigidbody>();
                             Rigidbody ourRb = arrayOfCircles[i, j, k].GetComponent<Rigidbody>();
 
