@@ -305,6 +305,7 @@
     <Compile Include="Assets\FloorChecker.cs" />
     <Compile Include="Assets\FloorDestroy.cs" />
     <Compile Include="Assets\GuySpawner.cs" />
+    <Compile Include="Assets\MineExplosion.cs" />
     <Compile Include="Assets\Movement.cs" />
     <Compile Include="Assets\RagdollBreaks.cs" />
     <Compile Include="Assets\RagdollOnCollide.cs" />

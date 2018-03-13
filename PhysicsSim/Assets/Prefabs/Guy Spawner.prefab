@@ -9,46 +9,46 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1607483233725768}
+  m_RootGameObject: {fileID: 1832946636950366}
   m_IsPrefabParent: 1
---- !u!1 &1607483233725768
+--- !u!1 &1832946636950366
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 5
   m_Component:
-  - component: {fileID: 4489070045347690}
-  - component: {fileID: 33650258469497734}
-  - component: {fileID: 64434450603070576}
-  - component: {fileID: 23332161158715862}
-  - component: {fileID: 114286843111981260}
+  - component: {fileID: 4153782032791168}
+  - component: {fileID: 33672576842900612}
+  - component: {fileID: 65334570196690410}
+  - component: {fileID: 23486909427570630}
+  - component: {fileID: 114782959864964746}
   m_Layer: 0
-  m_Name: DoomFloor
+  m_Name: Guy Spawner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4489070045347690
+--- !u!4 &4153782032791168
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1607483233725768}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.6501, y: 10.96, z: -6.26}
-  m_LocalScale: {x: 5000, y: 1, z: 5000}
+  m_GameObject: {fileID: 1832946636950366}
+  m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 3.43, y: 2, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!23 &23332161158715862
+  m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
+--- !u!23 &23486909427570630
 MeshRenderer:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1607483233725768}
+  m_GameObject: {fileID: 1832946636950366}
   m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -77,35 +77,35 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!33 &33650258469497734
+--- !u!33 &33672576842900612
 MeshFilter:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1607483233725768}
-  m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
---- !u!64 &64434450603070576
-MeshCollider:
+  m_GameObject: {fileID: 1832946636950366}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!65 &65334570196690410
+BoxCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1607483233725768}
+  m_GameObject: {fileID: 1832946636950366}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 0
-  m_CookingOptions: 14
-  m_SkinWidth: 0.01
-  m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &114286843111981260
+  m_Enabled: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &114782959864964746
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1607483233725768}
+  m_GameObject: {fileID: 1832946636950366}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: af4ed704d0ea6c846968879266fa15f0, type: 3}
+  m_Script: {fileID: 11500000, guid: b8e499a1cb5d2354d896cb4e0a7e9581, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  prefab: {fileID: 1790500614120474, guid: e97a966b23a54ab4d84f27821e36585f, type: 2}
+  timer: 10

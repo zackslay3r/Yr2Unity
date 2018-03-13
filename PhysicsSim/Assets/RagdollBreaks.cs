@@ -6,7 +6,7 @@ public class RagdollBreaks : MonoBehaviour {
 
     public int BreakStrength;
     private int BreakStrengthSquared;
-    public int 
+    public int timer;
 
 	// Use this for initialization
 	void Start () {
@@ -40,7 +40,7 @@ public class RagdollBreaks : MonoBehaviour {
             {
                 if (j.currentForce.sqrMagnitude > BreakStrengthSquared)
                 {
-                    Destroy(gameObject.transform.root.gameObject, 3);
+                    Destroy(gameObject.transform.root.gameObject, timer);
                     j.gameObject.transform.SetParent(null);
                     Destroy(j);
                     

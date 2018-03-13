@@ -333,7 +333,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   range: 100
-  impactForce: 1500
+  impactForce: 600
   EndOfGun: {fileID: 4714069897185690}
   fpsCam: {fileID: 20785793826934322}
 --- !u!114 &114455801104527760

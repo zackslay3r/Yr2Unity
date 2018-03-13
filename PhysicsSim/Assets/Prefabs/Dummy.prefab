@@ -2399,6 +2399,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BreakStrength: 500
+  timer: 5
 --- !u!135 &135655111493324152
 SphereCollider:
   m_ObjectHideFlags: 1
