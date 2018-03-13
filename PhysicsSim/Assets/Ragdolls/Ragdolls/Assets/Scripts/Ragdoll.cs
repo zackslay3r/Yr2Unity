@@ -13,6 +13,7 @@ public class Ragdoll : MonoBehaviour {
         set
         {
             animator.enabled = !value;
+            if(rigidbodies.Count > 0)
             foreach (Rigidbody r in rigidbodies)
                 r.isKinematic = !value;
         }

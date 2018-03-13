@@ -9,7 +9,7 @@ public class FloorChecker : MonoBehaviour {
     public LayerMask ground;
     private bool isGrounded = false;
     // Update is called once per frame
-    void Update () {
+    void FixedUpdate () {
 
         if (isGrounded == false)
         {
