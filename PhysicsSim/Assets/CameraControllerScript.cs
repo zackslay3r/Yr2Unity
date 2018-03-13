@@ -16,6 +16,7 @@ public class CameraControllerScript : MonoBehaviour {
     private void Awake()
     {
         Cursor.lockState = CursorLockMode.Locked;
+        
     }
     void RotateCamera()
     {

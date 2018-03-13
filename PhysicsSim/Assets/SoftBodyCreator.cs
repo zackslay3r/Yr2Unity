@@ -7,7 +7,7 @@ public class SoftBodyCreator : MonoBehaviour
     public int Length, Width, Height;
     public float springCoefficient, dampering, scale, breakforce, mass;
     public GameObject softbody;
-    public GameObject spawnPoint;
+    //public GameObject spawnPoint;
     public float offset;
     public GameObject[,,] arrayOfCircles;
     // Use this for initialization
@@ -45,10 +45,10 @@ public class SoftBodyCreator : MonoBehaviour
                     softBodyCircle.mass = mass;
                     g.transform.localScale = new Vector3(scale,scale,scale);
                  
-                    g.transform.position = spawnPoint.transform.position;
+                    g.transform.position = transform.position;
                     arrayOfCircles[i, j, k] = g;
                     //g.transform.position = new Vector3(i + 1 + offset, j + 1 + offset, k + 1 + offset);
-                    g.transform.position = new Vector3(spawnPoint.transform.position.x + i * offset, spawnPoint.transform.position.y + j * offset, spawnPoint.transform.position.z + k * offset);
+                    g.transform.position = new Vector3(transform.position.x + i * offset, transform.position.y + j * offset, transform.position.z + k * offset);
                     g.gameObject.tag = "Softbody";
                    
                 }

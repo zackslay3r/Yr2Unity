@@ -37,9 +37,14 @@ public class Shooting : MonoBehaviour
            
             if (hit.transform.root.GetComponent<Ragdoll>() != null)
             {
+                if (!hit.transform.root.GetComponent<Ragdoll>().RagdollOn)
+                {
+                    //Ragdoll ragdoll = hit.transform.root.GetComponent<Ragdoll>();
+                    hit.transform.root.GetComponent<Ragdoll>().RagdollOn = true;
+                    Debug.Log(hit.transform.root.GetComponent<Ragdoll>().RagdollOn);
+                }
+                hit.rigidbody.AddForceAtPosition((hit.point - EndOfGun.transform.position).normalized * impactForce,hit.point);
                 
-                hit.rigidbody.AddForce(-hit.normal * 20);
-                hit.transform.root.GetComponent<Ragdoll>().RagdollOn = true;
             }
             if (hit.rigidbody != null)
             {

@@ -5,21 +5,45 @@ using UnityEngine;
 public class RagdollBreaks : MonoBehaviour {
 
     public int BreakStrength;
-
+    private int BreakStrengthSquared;
 
 	// Use this for initialization
 	void Start () {
+        //Set BreakStrengthSquared.
+        //BreakStrengthSquared = BreakStrength * BreakStrength;
+
+
+
         CharacterJoint[] joints = GetComponentsInChildren<CharacterJoint>();
 
         foreach (CharacterJoint j in joints)
         {
-            j.breakForce = BreakStrength;
-
+            //if (j.name.Contains("Arm") || j.name.Contains("UpLeg") || j.name.Contains("Head"))
+            //{
+            //    j.breakForce = BreakStrength;
+            //}
         }
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		
+
+        CharacterJoint[] joints = GetComponentsInChildren<CharacterJoint>();
+
+        foreach (CharacterJoint j in joints)
+        {
+            BreakStrengthSquared = BreakStrength * BreakStrength;
+
+            if (j.name.Contains("Arm") || j.name.Contains("UpLeg") || j.name.Contains("Head"))
+            {
+                if (j.currentForce.sqrMagnitude > BreakStrengthSquared)
+                {
+
+                    j.gameObject.transform.SetParent(null);
+                    Destroy(j);
+                }
+            }
+        }
+
 	}
 }
