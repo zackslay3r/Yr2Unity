@@ -299,9 +299,12 @@
   <ItemGroup>
     <Compile Include="Assets\CameraControllerScript.cs" />
     <Compile Include="Assets\CharacterControllerScript.cs" />
+    <Compile Include="Assets\Cleanup.cs" />
     <Compile Include="Assets\ConstantSpinning.cs" />
     <Compile Include="Assets\DynamicPushing.cs" />
+    <Compile Include="Assets\FloorChecker.cs" />
     <Compile Include="Assets\FloorDestroy.cs" />
+    <Compile Include="Assets\GuySpawner.cs" />
     <Compile Include="Assets\Movement.cs" />
     <Compile Include="Assets\RagdollBreaks.cs" />
     <Compile Include="Assets\RagdollOnCollide.cs" />

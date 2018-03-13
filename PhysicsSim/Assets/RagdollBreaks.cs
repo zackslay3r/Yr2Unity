@@ -6,6 +6,7 @@ public class RagdollBreaks : MonoBehaviour {
 
     public int BreakStrength;
     private int BreakStrengthSquared;
+    public int 
 
 	// Use this for initialization
 	void Start () {
@@ -22,6 +23,7 @@ public class RagdollBreaks : MonoBehaviour {
             //{
             //    j.breakForce = BreakStrength;
             //}
+           
         }
 	}
 	
@@ -38,12 +40,26 @@ public class RagdollBreaks : MonoBehaviour {
             {
                 if (j.currentForce.sqrMagnitude > BreakStrengthSquared)
                 {
-
+                    Destroy(gameObject.transform.root.gameObject, 3);
                     j.gameObject.transform.SetParent(null);
                     Destroy(j);
+                    
                 }
             }
         }
+  // testing pls
 
+ 
+        foreach (CharacterJoint j in joints)
+        {
+            if (j.name.Contains("Head"))
+            {
+               CharacterJoint testJoint = j;
+                //Debug.Log(testJoint.currentForce);
+        
+            }
+            
+        }
 	}
+  
 }

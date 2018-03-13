@@ -808,6 +808,8 @@ GameObject:
   - component: {fileID: 95550632650770464}
   - component: {fileID: 114053473901793190}
   - component: {fileID: 114519152464485260}
+  - component: {fileID: 114295327466543472}
+  - component: {fileID: 114222994981926386}
   m_Layer: 0
   m_Name: Dummy
   m_TagString: Untagged
@@ -1570,7 +1572,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1790500614120474}
   m_LocalRotation: {x: -0, y: 0.99634933, z: -0, w: -0.08536982}
-  m_LocalPosition: {x: 0.00056189427, y: 12, z: 0.0073884716}
+  m_LocalPosition: {x: 0.00056189427, y: 12.109, z: 0.0073884716}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4415164094142126}
@@ -1612,7 +1614,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1873509951433708}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0, y: 0, z: 0}
+  m_LocalPosition: {x: -0, y: 0.188, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4415164094142126}
@@ -2357,6 +2359,34 @@ MonoBehaviour:
   - {fileID: 54368824860903086}
   - {fileID: 54429056240506830}
   - {fileID: 54779451013720264}
+--- !u!114 &114222994981926386
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1790500614120474}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 883117fb31741474eab6ac440d0c2203, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timer: 15
+--- !u!114 &114295327466543472
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1790500614120474}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81001d02d1c03f14490ffbf915c42493, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fallSpeed: 5
+  rayDistance: 0.1
+  ground:
+    serializedVersion: 2
+    m_Bits: 4294967295
 --- !u!114 &114519152464485260
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2368,7 +2398,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66708c8b1b60b9847be12ee887457784, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BreakStrength: 1750
+  BreakStrength: 500
 --- !u!135 &135655111493324152
 SphereCollider:
   m_ObjectHideFlags: 1
@@ -2521,7 +2551,7 @@ SkinnedMeshRenderer:
   m_SortingOrder: 0
   serializedVersion: 2
   m_Quality: 0
-  m_UpdateWhenOffscreen: 0
+  m_UpdateWhenOffscreen: 1
   m_SkinnedMotionVectors: 1
   m_Mesh: {fileID: 4300000, guid: c14986186a4735749bd8dd4f645f863c, type: 3}
   m_Bones:
@@ -2619,7 +2649,7 @@ SkinnedMeshRenderer:
   m_SortingOrder: 0
   serializedVersion: 2
   m_Quality: 0
-  m_UpdateWhenOffscreen: 0
+  m_UpdateWhenOffscreen: 1
   m_SkinnedMotionVectors: 1
   m_Mesh: {fileID: 4300002, guid: c14986186a4735749bd8dd4f645f863c, type: 3}
   m_Bones:
@@ -2682,7 +2712,7 @@ SkinnedMeshRenderer:
   m_SortingOrder: 0
   serializedVersion: 2
   m_Quality: 0
-  m_UpdateWhenOffscreen: 0
+  m_UpdateWhenOffscreen: 1
   m_SkinnedMotionVectors: 1
   m_Mesh: {fileID: 4300004, guid: c14986186a4735749bd8dd4f645f863c, type: 3}
   m_Bones:
@@ -2963,8 +2993,8 @@ CharacterJoint:
   m_BreakTorque: Infinity
   m_EnableCollision: 0
   m_EnablePreprocessing: 0
-  m_MassScale: 0.01
-  m_ConnectedMassScale: 1
+  m_MassScale: 1
+  m_ConnectedMassScale: 0.00001
 --- !u!144 &144593170706294924
 CharacterJoint:
   m_ObjectHideFlags: 1

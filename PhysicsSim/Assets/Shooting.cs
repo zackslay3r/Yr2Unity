@@ -33,7 +33,7 @@ public class Shooting : MonoBehaviour
 
             Debug.Log(hit.transform.name);
             //Target target = hit.transform.GetComponent<Target>();
-
+            Rigidbody[] rigidbodies = transform.root.GetComponentsInChildren<Rigidbody>();
            
             if (hit.transform.root.GetComponent<Ragdoll>() != null)
             {
@@ -41,9 +41,16 @@ public class Shooting : MonoBehaviour
                 {
                     //Ragdoll ragdoll = hit.transform.root.GetComponent<Ragdoll>();
                     hit.transform.root.GetComponent<Ragdoll>().RagdollOn = true;
-                    Debug.Log(hit.transform.root.GetComponent<Ragdoll>().RagdollOn);
+
+                    foreach (Rigidbody r in rigidbodies)
+                    {
+                        r.isKinematic = false;
+                    }
+
+                    //Debug.Log(hit.transform.root.GetComponent<Ragdoll>().RagdollOn);
+                    hit.rigidbody.AddForceAtPosition((hit.point - EndOfGun.transform.position).normalized * impactForce,hit.point);
                 }
-                hit.rigidbody.AddForceAtPosition((hit.point - EndOfGun.transform.position).normalized * impactForce,hit.point);
+                
                 
             }
             if (hit.rigidbody != null)
