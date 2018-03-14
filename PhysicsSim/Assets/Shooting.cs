@@ -6,11 +6,11 @@ public class Shooting : MonoBehaviour
 {
 
     public float range = 100;
-    public float impactForce = 30;
+    public float impactForce;
     public Transform EndOfGun;
     public Camera fpsCam;
 
-    private void FixedUpdate()
+    private void Update()
     {
         if (Input.GetMouseButtonDown(0))
         {
@@ -25,7 +25,7 @@ public class Shooting : MonoBehaviour
         Debug.DrawRay(EndOfGun.transform.position, fpsCam.transform.forward * range, Color.blue, 3.0f);
         // If we hit something with our shot raycast.
         //if (Physics.Raycast(fpsCam.transform.position, fpsCam.transform.forward, out hit, range)) ;
-        if (Physics.Raycast(fpsCam.transform.position, fpsCam.transform.forward, out hit, range)) ;
+        if (Physics.Raycast(fpsCam.transform.position, fpsCam.transform.forward, out hit, range))
         {
             // Put in place the takeDamage event handler for the game manager here.
             //GameObject.FindGameObjectWithTag("Manager").GetComponent<PlayerManager>().HandleEvent(GameEvent.)
