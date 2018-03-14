@@ -22,7 +22,7 @@ public class SoftBodyCreator : MonoBehaviour
 
     }
 
-    void MakeSoftBody(int length, int width, int height, float springCoefficient, float dampening)
+    public void MakeSoftBody(int length, int width, int height, float springCoefficient, float dampening)
     {
         arrayOfCircles = new GameObject[length, width, height];
 

@@ -20,7 +20,7 @@ public class RagdollBreaks : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void FixedUpdate () {
+	void Update () {
 
         CharacterJoint[] joints = GetComponentsInChildren<CharacterJoint>();
 

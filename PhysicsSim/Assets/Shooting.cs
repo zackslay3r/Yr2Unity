@@ -35,7 +35,10 @@ public class Shooting : MonoBehaviour
             //Target target = hit.transform.GetComponent<Target>();
             Rigidbody[] rigidbodies = transform.root.GetComponentsInChildren<Rigidbody>();
            
-            if (hit.transform.root.GetComponent<Ragdoll>() != null)
+           
+            if (hit.transform.GetComponent<Rigidbody>() != null)
+            {
+                if (hit.transform.root.GetComponent<Ragdoll>() != null)
             {
                 if (!hit.transform.root.GetComponent<Ragdoll>().RagdollOn)
                 {
@@ -48,11 +51,15 @@ public class Shooting : MonoBehaviour
                     }
 
                     //Debug.Log(hit.transform.root.GetComponent<Ragdoll>().RagdollOn);
-                    hit.rigidbody.AddForceAtPosition((hit.point - EndOfGun.transform.position).normalized * impactForce,hit.point);
+                    //hit.rigidbody.AddForceAtPosition((hit.point - EndOfGun.transform.position).normalized * impactForce,hit.point);
                 }
                 
                 
             }
+
+                hit.rigidbody.AddForceAtPosition((hit.point - EndOfGun.transform.position).normalized * impactForce, hit.point);
+            }
+
             if (hit.transform.tag == "Softbody" )
             {
                 hit.rigidbody.AddForce(-hit.normal * impactForce);
