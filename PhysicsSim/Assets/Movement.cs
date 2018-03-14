@@ -15,7 +15,7 @@ public class Movement : MonoBehaviour {
         charControl = GetComponent<CharacterController>();
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         
         //MovePlayer(); 

@@ -10,7 +10,7 @@ public class Shooting : MonoBehaviour
     public Transform EndOfGun;
     public Camera fpsCam;
 
-    private void Update()
+    private void FixedUpdate()
     {
         if (Input.GetMouseButtonDown(0))
         {
@@ -53,7 +53,7 @@ public class Shooting : MonoBehaviour
                 
                 
             }
-            if (hit.rigidbody != null)
+            if (hit.rigidbody != null && hit.transform.root.GetComponent<Ragdoll>() != null)
             {
                 hit.rigidbody.AddForce(-hit.normal * impactForce);
             }
