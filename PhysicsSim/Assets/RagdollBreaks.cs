@@ -11,7 +11,13 @@ public class RagdollBreaks : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+<<<<<<< HEAD
        
+=======
+        //Set BreakStrengthSquared.
+        //BreakStrengthSquared = BreakStrength * BreakStrength;
+
+>>>>>>> 4fea8b584ec1363982f78dc29135400983c81561
         limbs = new List<GameObject>();
 
         CharacterJoint[] joints = GetComponentsInChildren<CharacterJoint>();
@@ -46,6 +52,26 @@ public class RagdollBreaks : MonoBehaviour {
                 }
             }
         }
+<<<<<<< HEAD
+=======
+        // testing pls
+        //foreach (GameObject limb in limbs)
+        //{
+        //    limbs.Remove(limb);
+        //    Destroy(limb);
+        //}
+ 
+        foreach (CharacterJoint j in joints)
+        {
+            if (j.name.Contains("Head"))
+            {
+               CharacterJoint testJoint = j;
+                //Debug.Log(testJoint.currentForce);
+        
+            }
+            
+        }
+>>>>>>> 4fea8b584ec1363982f78dc29135400983c81561
 	}
   
 }
