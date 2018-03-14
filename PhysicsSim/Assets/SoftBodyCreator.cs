@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SoftBodyCreator : MonoBehaviour
 {
-    public int Length, Width, Height;
+    public int Length, Height, Width;
     public float springCoefficient, dampering, scale, breakforce, mass;
     public GameObject softbody;
     //public GameObject spawnPoint;
@@ -13,7 +13,7 @@ public class SoftBodyCreator : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        MakeSoftBody(Length, Width, Height, springCoefficient, dampering);
+        MakeSoftBody(Length, Height, Width, springCoefficient, dampering);
     }
 
     // Update is called once per frame
@@ -22,9 +22,9 @@ public class SoftBodyCreator : MonoBehaviour
 
     }
 
-    public void MakeSoftBody(int length, int width, int height, float springCoefficient, float dampening)
+    public void MakeSoftBody(int length, int height,int width, float springCoefficient, float dampening)
     {
-        arrayOfCircles = new GameObject[length, width, height];
+        arrayOfCircles = new GameObject[length,height,width];
 
         //GameObject[,,] arrayOfCircles = new GameObject[length, width, height];
 
@@ -35,9 +35,9 @@ public class SoftBodyCreator : MonoBehaviour
         // Creation of the spheres.
         for (int i = 0; i < length; i++)
         {
-            for (int j = 0; j < width; j++)
+            for (int j = 0; j < height; j++)
             {
-                for (int k = 0; k < height; k++)
+                for (int k = 0; k < width; k++)
                 {
 
                     GameObject g = Instantiate(softbody);
@@ -63,9 +63,9 @@ public class SoftBodyCreator : MonoBehaviour
         // Creation of springs.
         for (int i = 0; i < length; i++)
         {
-            for (int j = 0; j < width; j++)
+            for (int j = 0; j < height; j++)
             {
-                for (int k = 0; k < height; k++)
+                for (int k = 0; k < width; k++)
                 {
                     Collider[] results = Physics.OverlapSphere(arrayOfCircles[i, j, k].gameObject.transform.position, offset * 1.414213f);
 
@@ -81,7 +81,7 @@ public class SoftBodyCreator : MonoBehaviour
 
                             SpringJoint[] springJoints = c.GetComponents<SpringJoint>();
                             //SpringJoint sj = c.gameObject.AddComponent<SpringJoint>() as SpringJoint;
-                            if (j == width)
+                            if (j == length)
                             {
                                 continue;
                             }
@@ -94,7 +94,7 @@ public class SoftBodyCreator : MonoBehaviour
                             sj.spring = springCoefficient;
                             sj.damper = dampening;
                             sj.breakForce = breakforce;
-                            //sj.breakTorque = breakforce;
+                         
                             Rigidbody rb = c.GetComponent<Rigidbody>();
                             Rigidbody ourRb = arrayOfCircles[i, j, k].GetComponent<Rigidbody>();
 
@@ -129,9 +129,9 @@ public class SoftBodyCreator : MonoBehaviour
 
         for (int i = 0; i < length; i++)
         {
-            for (int j = 0; j < width; j++)
+            for (int j = 0; j < height; j++)
             {
-                for (int k = 0; k < height; k++)
+                for (int k = 0; k < width; k++)
                 {
                     SpringJoint[] springJointsEachItem = arrayOfCircles[i, j, k].GetComponents<SpringJoint>();
 

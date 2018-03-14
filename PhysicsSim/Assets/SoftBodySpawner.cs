@@ -15,7 +15,7 @@ public class SoftBodySpawner : MonoBehaviour {
     {
         if (other.transform.tag == "Player")
         {
-            spawner.GetComponent<SoftBodyCreator>().MakeSoftBody(spawner.GetComponent<SoftBodyCreator>().Length, spawner.GetComponent<SoftBodyCreator>().Width, spawner.GetComponent<SoftBodyCreator>().Height, spawner.GetComponent<SoftBodyCreator>().springCoefficient, spawner.GetComponent<SoftBodyCreator>().dampering);
+            spawner.GetComponent<SoftBodyCreator>().MakeSoftBody(spawner.GetComponent<SoftBodyCreator>().Length, spawner.GetComponent<SoftBodyCreator>().Height, spawner.GetComponent<SoftBodyCreator>().Width, spawner.GetComponent<SoftBodyCreator>().springCoefficient, spawner.GetComponent<SoftBodyCreator>().dampering);
         }
     }
 
