@@ -53,7 +53,7 @@ public class Shooting : MonoBehaviour
                 
                 
             }
-            if (hit.rigidbody != null && hit.transform.root.GetComponent<Ragdoll>() != null)
+            if (hit.transform.tag == "Softbody" )
             {
                 hit.rigidbody.AddForce(-hit.normal * impactForce);
             }

@@ -321,6 +321,7 @@
     <Compile Include="Assets\Ragdolls\Ragdolls\Assets\Scripts\RagdollTrigger.cs" />
     <Compile Include="Assets\Shooting.cs" />
     <Compile Include="Assets\SoftBodyCreator.cs" />
+    <Compile Include="Assets\SoftBodySpawner.cs" />
     <Compile Include="Assets\StickyPlatforms.cs" />
     <Compile Include="Assets\WeaponSwitching.cs" />
   </ItemGroup>
