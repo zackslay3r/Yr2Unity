@@ -14,7 +14,7 @@ public class Text : MonoBehaviour {
     // Update is called once per frame
     void Update () {
 
-        gameObject.GetComponent<TextMesh>().text = SpawnerScript.Width.ToString();
+        gameObject.GetComponent<TextMesh>().text = "Width: " + SpawnerScript.Width.ToString() + "Height: " + SpawnerScript.Height.ToString() + "Breadth:" + SpawnerScript.Length.ToString();
 
     }
 }

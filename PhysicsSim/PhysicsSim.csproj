@@ -125,9 +125,12 @@
     <Compile Include="Assets\Ragdolls\Ragdolls\Assets\Scripts\Ragdoll.cs" />
     <Compile Include="Assets\Ragdolls\Ragdolls\Assets\Scripts\RagdollTrigger.cs" />
     <Compile Include="Assets\Shooting.cs" />
+    <Compile Include="Assets\ShowSpeed.cs" />
     <Compile Include="Assets\SizeScript.cs" />
     <Compile Include="Assets\SoftBodyCreator.cs" />
     <Compile Include="Assets\SoftBodySpawner.cs" />
+    <Compile Include="Assets\SpeedChange.cs" />
+    <Compile Include="Assets\SpeedScript.cs" />
     <Compile Include="Assets\StickyPlatforms.cs" />
     <Compile Include="Assets\Text.cs" />
     <Compile Include="Assets\WeaponSwitching.cs" />

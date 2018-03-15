@@ -33,9 +33,11 @@ public class Movement : MonoBehaviour {
                 transform.parent = null;
             }
         }
-        
-        oldY -= gravity * Time.deltaTime;
-        controller.Move(moveDirection * Time.deltaTime);
+        else
+        {
+            oldY -= gravity * Time.deltaTime;
+        }
+            controller.Move(moveDirection * Time.deltaTime);
     }
 }
 

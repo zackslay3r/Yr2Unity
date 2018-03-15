@@ -63,7 +63,7 @@ GameObject:
   - component: {fileID: 114564280916162068}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -595,7 +595,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   range: 100
-  impactForce: 2000
+  impactForce: 1500
   EndOfGun: {fileID: 4714069897185690}
   fpsCam: {fileID: 20785793826934322}
 --- !u!114 &114455801104527760
