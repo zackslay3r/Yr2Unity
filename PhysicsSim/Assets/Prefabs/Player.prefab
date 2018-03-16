@@ -55,7 +55,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4995538030897226}
   - component: {fileID: 33766512886469802}
-  - component: {fileID: 136901150345665668}
   - component: {fileID: 23677421838675736}
   - component: {fileID: 114455801104527760}
   - component: {fileID: 143113099788615166}
@@ -609,9 +608,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0ae87da7b8d41c479735b7b1b7ca4e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  walkSpeed: 5
+  speed: 5
   jumpSpeed: 100
   gravity: 4
+  walkSpeed: 5
+  crouchSpeed: 2.5
 --- !u!114 &114564280916162068
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -655,19 +656,6 @@ Behaviour:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1317701031842916}
   m_Enabled: 1
---- !u!136 &136901150345665668
-CapsuleCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1273570618826544}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 0
-  m_Radius: 0.5
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!143 &143113099788615166
 CharacterController:
   m_ObjectHideFlags: 1
