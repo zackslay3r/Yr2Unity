@@ -639,8 +639,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 5
   jumpSpeed: 150
-  gravity: 4
-  isCrouched: 0
+  gravity: 3
   walkSpeed: 5
   crouchSpeed: 2.5
 --- !u!114 &114564280916162068

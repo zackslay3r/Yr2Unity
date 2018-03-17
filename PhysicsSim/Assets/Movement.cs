@@ -4,19 +4,40 @@ using UnityEngine;
 
 public class Movement : MonoBehaviour {
 
+
+    // This is the player's character controller.
     CharacterController charControl;
+
+
+    // These are floats for the current speed of the player as well as jump speed.
     public float speed;
     public float jumpSpeed;
+    // This is used for directional movement.
     private Vector3 moveDirection = Vector3.zero;
+    // This is gravity that is defaulted to 5.
     public float gravity = 5.0f;
+    // This float is used to store the old Y coordate of our player (for the previous frame.)
     float oldY;
-    public bool isCrouched = false;
+
+    // these floats are used for walk speed and crouch speed.
     public float walkSpeed, crouchSpeed;
+    // These two Vector 3's are used to store the beginning centre and scale of the mesh collider/renderer.
     private Vector3 startCentre;
     private Vector3 startScale;
 
 
+    // As well as the starting height.
     private float startHeight;
+
+
+
+    /// <summary>
+    /// On awake, we want to set all our private variables.
+    /// This means we want to set our character controller to be the controller that is attached to the player.
+    /// we also want to set our startHeight, startCentre and startScale to be of the player when they start so we have values
+    /// that we can revert to when we go from crouching to standing.
+    /// </summary>
+    /// <returns>void</returns>
     void Awake()
     {
         charControl = GetComponent<CharacterController>();
@@ -26,15 +47,35 @@ public class Movement : MonoBehaviour {
 
     }
 
+    /// <summary>
+    /// During update, we want to check every frame if our player is crouching.
+    /// </summary>
+    /// <returns>void</returns>
     private void Update()
     {
-        
-        //MovePlayer(); 
+        // If the character control is grounded. 
+        if (charControl.isGrounded)
+        {
+            // do the crouch check.
+            crouch();
 
-            moveDirection = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
-            moveDirection = transform.TransformDirection(moveDirection);
-            moveDirection.y = oldY;
-            moveDirection *= speed;
+        }
+            
+    }
+    /// <summary>
+    /// During FixedUpdate, we want to do our base movement as well as jumping.
+    /// we want to do this during fixed update so that we can be assured that the movement lines up with our physics tick's.
+    /// </summary>
+    /// <returns>void</returns>
+    private void FixedUpdate()
+    {
+        //Set up the move direction.
+      moveDirection = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
+      moveDirection = transform.TransformDirection(moveDirection);
+      moveDirection.y = oldY;
+      moveDirection *= speed;
+
+        // If the character controller, is grounded, check to see if the user jumped.
         if (charControl.isGrounded)
         {
 
@@ -44,17 +85,22 @@ public class Movement : MonoBehaviour {
                 transform.parent = null;
             }
 
-            crouch();
-
         }
+        // if not, we will just pull them down to the ground via gravity.
         else
         {
             oldY -= gravity * Time.deltaTime;
         }
-            charControl.Move(moveDirection * Time.deltaTime);
+        // then, we will finally move the player.
+        charControl.Move(moveDirection * Time.deltaTime);
     }
 
 
+    /// <summary>
+    /// This crouch function is responsible for checking to see if the user has pressed the button to crouch and if so, to rescale, recentre and change the height of our player.
+    /// once the user stop's crouching, they should then return to the original values.
+    /// </summary>
+    /// <returns>void </returns>
     void crouch()
     {
 
@@ -66,12 +112,8 @@ public class Movement : MonoBehaviour {
 
         if (Input.GetKey(KeyCode.LeftControl))
         {
-            //isCrouched = true;
             newHeight = 0.5f * startHeight;
-            //newCentre.y = 0.2f;
             newScale = new Vector3(newScale.x, 0.5f, newScale.z);
-
-
         }
 
         float lastHeight = charControl.height;
@@ -94,21 +136,3 @@ public class Movement : MonoBehaviour {
 
 
 
-//void FixedUpdate()
-//{
-//    MovePlayer();
-//}
-
-//void MovePlayer()
-//{
-//    //float horiz = Input.GetAxis("Horizontal");
-//    //float vert = Input.GetAxis("Vertical");
-
-//    //Vector3 moveDirSide = transform.right * horiz * walkSpeed;
-//    //Vector3 moveDirForward = transform.forward * vert * walkSpeed;
-
-//    //charControl.SimpleMove(moveDirSide);
-//    //charControl.SimpleMove(moveDirForward);
-//    //charControl.Move(Physics.gravity * Time.deltaTime);
-//}
-//}
