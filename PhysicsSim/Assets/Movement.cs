@@ -12,12 +12,18 @@ public class Movement : MonoBehaviour {
     float oldY;
     public bool isCrouched = false;
     public float walkSpeed, crouchSpeed;
+    private Vector3 startCentre;
+    private Vector3 startScale;
+
 
     private float startHeight;
     void Awake()
     {
         charControl = GetComponent<CharacterController>();
         startHeight = charControl.height;
+        startCentre = charControl.center;
+        startScale = gameObject.transform.GetChild(1).localScale;
+
     }
 
     private void Update()
@@ -38,34 +44,7 @@ public class Movement : MonoBehaviour {
                 transform.parent = null;
             }
 
-            float newHeight = startHeight;
-            //crouch();
-            if (Input.GetKey(KeyCode.LeftControl))
-            {
-                //isCrouched = true;
-                newHeight = 0.5f * startHeight;
-            }
-            
-            float lastHeight = charControl.height;
-
-
-            charControl.height = Mathf.Lerp(charControl.height, newHeight, 5.0f * Time.deltaTime);
-            //transform.localScale = new Vector3(transform.localScale.x, charControl.height, transform.localScale.z);
-
-            gameObject.transform.position = new Vector3(transform.position.x,transform.position.y + (charControl.height - lastHeight) * 1f, transform.position.z);
-
-            //if (isCrouched)
-            //{
-            //    charControl.height = 1f; //crouch height
-
-            //    transform.position = new Vector3(transform.position.x, transform.position.y - 0.4f, transform.position.z);
-            //}
-            //else
-            //{
-            //    charControl.height = 2f; //player height
-            //                             //transform.position = new Vector3(transform.position.x, transform.position.y + 0.4f, transform.position.z);
-            //                             //transform.position = new Vector3(transform.position.x, transform.position.y + 0.5f, transform.position.z);
-            //}
+            crouch();
 
         }
         else
@@ -78,29 +57,35 @@ public class Movement : MonoBehaviour {
 
     void crouch()
     {
- 
+
+        Vector3 newCentre = startCentre;
+        Vector3 newScale = startScale;
+
+
+        float newHeight = startHeight;
+
         if (Input.GetKey(KeyCode.LeftControl))
         {
-            isCrouched = true;
-            
-        }
-        else
-        {
-            isCrouched = false;
+            //isCrouched = true;
+            newHeight = 0.5f * startHeight;
+            //newCentre.y = 0.2f;
+            newScale = new Vector3(newScale.x, 0.5f, newScale.z);
+
+
         }
 
-        if (isCrouched)
-        {
-            charControl.height = 1f; //crouch height
+        float lastHeight = charControl.height;
+        Vector3 lastCentre = newCentre;
+        Vector3 lastScale = newScale;
 
-            transform.position = new Vector3(transform.position.x, transform.position.y - 0.4f, transform.position.z);
-        }
-        else
-        {
-            charControl.height = 2f; //player height
-            //transform.position = new Vector3(transform.position.x, transform.position.y + 0.4f, transform.position.z);
-            //transform.position = new Vector3(transform.position.x, transform.position.y + 0.5f, transform.position.z);
-        }
+        gameObject.transform.GetChild(1).localScale = Vector3.Lerp(gameObject.transform.GetChild(1).localScale, lastScale, 5.0f * Time.deltaTime);
+
+
+        charControl.height = Mathf.Lerp(charControl.height, newHeight, 5.0f * Time.deltaTime);
+        charControl.center = new Vector3(newCentre.x, newCentre.y, newCentre.z);
+
+
+        gameObject.transform.position = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y + (charControl.height - lastHeight) * 0.5f, gameObject.transform.position.z);
 
     }
 
