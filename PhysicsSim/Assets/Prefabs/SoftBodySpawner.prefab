@@ -95,7 +95,7 @@ MonoBehaviour:
   Length: 4
   Height: 4
   Width: 4
-  springCoefficient: 100
+  springCoefficient: 150
   dampering: 0.1
   scale: 1
   breakforce: 500

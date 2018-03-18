@@ -102,38 +102,36 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\CameraControllerScript.cs" />
-    <Compile Include="Assets\CharacterControllerScript.cs" />
-    <Compile Include="Assets\Cleanup.cs" />
-    <Compile Include="Assets\ConstantSpinning.cs" />
-    <Compile Include="Assets\DynamicPushing.cs" />
-    <Compile Include="Assets\FloorChecker.cs" />
-    <Compile Include="Assets\FloorDestroy.cs" />
-    <Compile Include="Assets\GuySpawner.cs" />
-    <Compile Include="Assets\MineDrop.cs" />
-    <Compile Include="Assets\MineExplosion.cs" />
-    <Compile Include="Assets\MineFloorCheck.cs" />
-    <Compile Include="Assets\Movement.cs" />
     <Compile Include="Assets\ProCore\ProBuilder\API Examples\Icosphere FFT\Scripts\CameraControls.cs" />
     <Compile Include="Assets\ProCore\ProBuilder\API Examples\Icosphere FFT\Scripts\IcoBumpin.cs" />
     <Compile Include="Assets\ProCore\ProBuilder\API Examples\Misc\HueCube.cs" />
     <Compile Include="Assets\ProCore\ProBuilder\API Examples\Procedural Mesh\ExtrudeRandomEdges.cs" />
     <Compile Include="Assets\ProCore\ProBuilder\API Examples\Runtime Editing\RuntimeEdit.cs" />
     <Compile Include="Assets\ProCore\ProBuilder\API Examples\Vertex Colors\HighlightNearestFace.cs" />
-    <Compile Include="Assets\RagdollBreaks.cs" />
-    <Compile Include="Assets\RagdollOnCollide.cs" />
     <Compile Include="Assets\Ragdolls\Ragdolls\Assets\Scripts\Ragdoll.cs" />
     <Compile Include="Assets\Ragdolls\Ragdolls\Assets\Scripts\RagdollTrigger.cs" />
-    <Compile Include="Assets\Shooting.cs" />
-    <Compile Include="Assets\ShowSpeed.cs" />
-    <Compile Include="Assets\SizeScript.cs" />
-    <Compile Include="Assets\SoftBodyCreator.cs" />
-    <Compile Include="Assets\SoftBodySpawner.cs" />
-    <Compile Include="Assets\SpeedChange.cs" />
-    <Compile Include="Assets\SpeedScript.cs" />
-    <Compile Include="Assets\StickyPlatforms.cs" />
-    <Compile Include="Assets\Text.cs" />
-    <Compile Include="Assets\WeaponSwitching.cs" />
+    <Compile Include="Assets\Scripts\Player\CameraControllerScript.cs" />
+    <Compile Include="Assets\Scripts\Player\DynamicPushing.cs" />
+    <Compile Include="Assets\Scripts\Player\MineDrop.cs" />
+    <Compile Include="Assets\Scripts\Player\MineFloorCheck.cs" />
+    <Compile Include="Assets\Scripts\Player\Movement.cs" />
+    <Compile Include="Assets\Scripts\Player\Shooting.cs" />
+    <Compile Include="Assets\Scripts\Player\WeaponSwitching.cs" />
+    <Compile Include="Assets\Scripts\Ragdoll\Cleanup.cs" />
+    <Compile Include="Assets\Scripts\Ragdoll\FloorChecker.cs" />
+    <Compile Include="Assets\Scripts\Ragdoll\GuySpawner.cs" />
+    <Compile Include="Assets\Scripts\Ragdoll\MineExplosion.cs" />
+    <Compile Include="Assets\Scripts\Ragdoll\RagdollBreaks.cs" />
+    <Compile Include="Assets\Scripts\Ragdoll\RagdollOnCollide.cs" />
+    <Compile Include="Assets\Scripts\World\ConstantSpinning.cs" />
+    <Compile Include="Assets\Scripts\World\FloorDestroy.cs" />
+    <Compile Include="Assets\Scripts\World\ShowSpeed.cs" />
+    <Compile Include="Assets\Scripts\World\SizeScript.cs" />
+    <Compile Include="Assets\Scripts\World\SoftBodyCreator.cs" />
+    <Compile Include="Assets\Scripts\World\SoftBodySpawner.cs" />
+    <Compile Include="Assets\Scripts\World\SpeedChange.cs" />
+    <Compile Include="Assets\Scripts\World\StickyPlatforms.cs" />
+    <Compile Include="Assets\Scripts\World\Text.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\ProCore\ProBuilder\API Examples\Icosphere FFT\README.txt" />
